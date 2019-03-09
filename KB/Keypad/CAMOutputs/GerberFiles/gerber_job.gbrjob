@@ -1,7 +1,7 @@
 {
     "Header": {
         "Comment": "All values are metric (mm)",
-        "CreationDate": "2019-03-05T15:17:30Z",
+        "CreationDate": "2019-03-08T17:38:34Z",
         "GenerationSoftware": {
             "Application": "EAGLE",
             "Vendor": "Autodesk",
@@ -17,8 +17,8 @@
         },
         "Owner": "Rudi Strydom <iam@thatguy.co.za>",
         "Size": {
-            "X": 100.31,
-            "Y": 100
+            "X": 126.98,
+            "Y": 119.05
         }
     }
 }

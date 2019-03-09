@@ -15,14 +15,14 @@
 int Columns[4] = { COL_1, COL_2, COL_3, COL_4 };
 
 const byte rows = 5;
-const byte cols = 4;
+const byte cols = 5;
 
 char keys[rows][cols] = {
-  {'1','2','3','4'},
-  {'q','w','e','r'},
-  {'a','s','o','f'},
-  {'v',' ',' ','x'},
-  {' ',' ',' ','c'}
+  {'`', '1','2','3','4'},
+  {KEY_F1, 'q','w','e','r'},
+  {KEY_F2, 'a','s','o','f'},
+  {'v', 'x',' ','c','k'},
+  {' ',' ',' ','c', KEY_RIGHT_CTRL}
 };
 
 int keyCodes[rows][cols] = {
@@ -38,7 +38,7 @@ unsigned long debounceDelay = 250;
 
 void setup() {
   Serial.begin(115200);
-  while (!Serial);
+//  while (!Serial);
 
   Keyboard.begin();
 
