@@ -10,9 +10,10 @@
 #define COL_1 3
 #define COL_2 5
 #define COL_3 6 
-#define COL_4 9
+#define COL_4 8
+#define COL_5 9
 
-int Columns[4] = { COL_1, COL_2, COL_3, COL_4 };
+int Columns[5] = { COL_1, COL_2, COL_3, COL_4, COL_5 };
 
 const byte rows = 5;
 const byte cols = 5;
@@ -20,21 +21,21 @@ const byte cols = 5;
 char keys[rows][cols] = {
   {'`', '1','2','3','4'},
   {KEY_F1, 'q','w','e','r'},
-  {KEY_F2, 'a','s','o','f'},
+  {KEY_F2, 'a','s','d','f'},
   {'v', 'x',' ','c','k'},
   {' ',' ',' ','c', KEY_RIGHT_CTRL}
 };
 
 int keyCodes[rows][cols] = {
-  {0,1,2,3},
-  {4,5,6,7},
-  {8,9,10,11},
-  {12,13,14,15},
-  {16,17,18,19}
+  {0,1,2,3,4},
+  {5,6,7,8,9},
+  {10,11,12,13,14},
+  {15,16,17,18,19},
+  {20,21,22,23,24}
 };
 
 unsigned long lastDebounceTime[20]; 
-unsigned long debounceDelay = 250;
+unsigned long debounceDelay = 150;
 
 void setup() {
   Serial.begin(115200);
@@ -54,6 +55,7 @@ void setup() {
   pinMode(COL_2, OUTPUT);
   pinMode(COL_3, OUTPUT);
   pinMode(COL_4, OUTPUT);
+  pinMode(COL_5, OUTPUT);
 
   SPI.begin();
   SPI.setClockDivider(SPI_CLOCK_DIV16);
@@ -79,12 +81,12 @@ uint16_t mcp3008_read(uint8_t device, uint8_t  channel) {
 }
 
 void loop() {
-  for (int col=0; col<4; col++) {
+  for (int col=0; col<5; col++) {
     kill_it(Columns[col]);
     delay(1);
   }
   
-  for (int col=0; col<4; col++) {
+  for (int col=0; col<5; col++) {
     light_it_up(Columns[col]);
     for (int chan=0; chan<8; chan++) {
       int read = mcp3008_read(DEVICE_1, chan);
